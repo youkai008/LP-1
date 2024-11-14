@@ -1,0 +1,27 @@
+
+int IRSensorPin = 9;
+int LEDPin = 13;
+
+void setup()
+{
+    Serial.begin(9600);
+    Serial.println("Working");
+    pinMode(9, INPUT);
+    pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+    int sensorStatus=digitalRead(IRSensorPin);
+
+    if(sensorStatus==0)
+    {
+        digitalWrite(LEDPin, HIGH);
+        Serial.println("Object detected.");
+    }
+    else
+    {
+        digitalWrite(LEDPin, LOW);
+        Serial.println("No object detected.");
+    } 
+}
